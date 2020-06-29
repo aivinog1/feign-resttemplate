@@ -1,0 +1,6 @@
+--source=.
+--verbose
+--exclude target/**/*
+--rule min-words:5
+--rule min-estimate:0
+--rule max-estimate:90
