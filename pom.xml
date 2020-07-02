@@ -8,7 +8,46 @@
     <artifactId>feign-resttemplate-client</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- @todo #1 Add Feign and spring boot dependencies. Preferably import like a BOM -->
     <!-- @todo #1 Add Kotlin support. This needs to develop in kotlin lang-->
     <!-- @todo #1 Add code coverage tool to integrate with CodeCov-->
+    <!-- @todo #1 Add checkstyle too support for kotlin. -->
+
+    <!-- @todo #4 Move versions of dependencies and plugins in properties. Consider importing BOM of projects -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.7.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
