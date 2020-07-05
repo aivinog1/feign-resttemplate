@@ -8,12 +8,20 @@
     <artifactId>feign-resttemplate-client</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- @todo #1 Add Kotlin support. This needs to develop in kotlin lang-->
+    <properties>
+        <kotlin.version>1.3.72</kotlin.version>
+    </properties>
+
     <!-- @todo #1 Add code coverage tool to integrate with CodeCov-->
     <!-- @todo #1 Add checkstyle too support for kotlin. -->
 
     <!-- @todo #4 Move versions of dependencies and plugins in properties. Consider importing BOM of projects -->
     <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -38,7 +46,30 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
